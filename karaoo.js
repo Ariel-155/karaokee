@@ -40,8 +40,8 @@ function iniciar() {
         gif.style.display = "block";
         setTimeout(() => {
             gif.style.display = "none";
-        }, 7000);
-    }, 6000);
+        }, 7100);
+    }, 6100);
 
     // Frases 1 arrancan a los 6s, cambian cada 3s
     // (ajusta el intervalo al ritmo de la canción)
@@ -56,7 +56,7 @@ function iniciar() {
             }
             document.getElementById("texto").textContent = mayusculas[letra];
             letra++;
-        }, 4000); // cada 3s cambia frase, ajusta a la canción
+        }, 4100); // cada 3s cambia frase, ajusta a la canción
 
     }, 14000);
 
