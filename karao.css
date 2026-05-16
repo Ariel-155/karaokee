@@ -3,8 +3,12 @@ html{
     padding: 0;
     align-items: center;
     box-sizing: border-box;
-    font-family:cursive;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+}
+
+h1{
+    font-family: cursive;
 }
 
 body{

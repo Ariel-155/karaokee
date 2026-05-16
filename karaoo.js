@@ -5,9 +5,9 @@ const frases = [
     "comienza a anochecer", "y el corazón va al descubierto.", "Debo interpretar tus gritos, tus llamadas",
     "tus caricias Entre cortadas ", "y tus arranques de pasión", "Debo buscar dentro de tanto desperfecto",
     "La moraleja de este cuento", "debo domar tu corazón.", "En la oscuridad", "son los instintos los que mandan",
-    "Que más quieres romper", "de corazones tienes colección", "Ya va a amanecer", "sigo en esta encrucijada",
+    "Que más quieres romper", "de corazones tienes colección", "Ya va a amanecer", "y sigo en esta encrucijada",
     "Misterio de mujer", "solo será cuestión de tiempo", "Debo interpretar tus gritos, tus llamadas",
-    "tus caricias Entre cortadas","Y tus arranques de pacion", "Debo buscar dentro de tanto desperfecto", "La moraleja de este cuento, debo domar tu corazón"
+    "tus caricias Entre cortadas","Y tus arranques de pasión", "Debo buscar dentro de tanto desperfecto", "La moraleja de este cuento", "debo domar tu corazón."
 ];
 
 const frases2 = [
@@ -15,15 +15,27 @@ const frases2 = [
     "Debo llegar al fondo de este desparpajo", " que yo de esta No me rajo", "hasta domar tu corazón."
 ];
 
+const frases3 = ["Gracias por escuchar mi proyecto :D"];
+
+const mayusculas4 = frases3.map(frase => frase.toUpperCase());
 const mayusculas = frases.map(frase => frase.toUpperCase());
 const mayusculas2 = primera.map(frase => frase.toUpperCase());
 const mayusculas3 = frases2.map(frase => frase.toUpperCase());
+
+function reiniciar() {
+    location.reload();
+    audio.pause();
+}
 
 function iniciar() {
     const gif = document.getElementById("gif");
     const gif2 = document.getElementById("gif2");
     const audio = document.getElementById("audio");
     let letra = 0;
+    
+    audio.addEventListener("ended", () => {
+        document.getElementById("reiniciar").style.display = "block";
+    });
 
     document.querySelector("button").style.display = "none";
     audio.play();
@@ -75,20 +87,35 @@ function iniciar() {
             gif2.style.display = "none";
         }, 28000);
 
-    }, 126000);
+    }, 126100);
 
     // Frases parte 2 arrancan en el minuto 2:35
     setTimeout(() => {
         let letra2 = 0;
 
+        // Mostramos la primera frase de la parte 2 de inmediato
         document.getElementById("texto").textContent = mayusculas3[letra2];
         letra2++;
 
-        setInterval(() => {
-            if (letra2 >= mayusculas3.length) return;
+        let intervalo = setInterval(() => {
+            
+            // CONDICIÓN DE CIERRE: Cuando se acaban las frases de la parte 2
+            if (letra2 >= mayusculas3.length) {
+                clearInterval(intervalo); // Frenamos el bucle
+                
+                // CORRECCIÓN: Limpiamos por completo AMBOS contenedores de texto viejos
+                document.getElementById("texto").textContent = ""; 
+                document.getElementById("ultima").textContent = "";
+                
+                document.getElementById("ultima").textContent = mayusculas4[0]; // CORRECCIÓN: Ahora sí, mostramos la frase final limpia y sola en su lugar correspondiente
+                return; 
+            }
+
+            // Mientras queden frases en "frases2", se imprimen de forma normal:
             document.getElementById("texto").textContent = mayusculas3[letra2];
             letra2++;
-        }, 4000);
+
+        }, 4000);   
 
     }, 155000);
 }

@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/karao.css">
+    <link rel="stylesheet" href="karao.css">
     <title>Karaoke</title>
 </head>
 <body>
@@ -10,13 +10,15 @@
         <h1 id="primer"></h1>
         <img src="fotos y gifs/rezeee.gif" alt="rezeee" width="250px" height="250px" id="gif" style="display: none;">
         <img src="fotos y gifs/reze_dance.gif" alt="reze-dance" width="250px" height="250px" id="gif2" style="display: none;">
-        <div class="hola"><h2 id="texto"></h2></div>
+        <div class="hola"><h1 id="texto"></h1></div>
         <button onclick="iniciar()">▶ Iniciar</button>
-        <audio id="audio" loop volume="90%">
+        <button id="reiniciar" onclick="reiniciar()" style="display: none;">🔄 Reiniciar</button>
+        <audio id="audio" volume="90%">
              <source src="fotos y gifs/jose_log.mp3" type="audio/mpeg">
         </audio>
     </main>
+    <h1 id="ultima"></h1>
     
-<script src="js/karaoo.js"></script>
+<script src="karaoo.js"></script>
 </body>
 </html>
