@@ -101,14 +101,21 @@ function iniciar() {
             
             // CONDICIÓN DE CIERRE: Cuando se acaban las frases de la parte 2
             if (letra2 >= mayusculas3.length) {
-                clearInterval(intervalo); // Frenamos el bucle
-                
-                // CORRECCIÓN: Limpiamos por completo AMBOS contenedores de texto viejos
-                document.getElementById("texto").textContent = ""; 
-                document.getElementById("ultima").textContent = "";
-                
-                document.getElementById("ultima").textContent = mayusculas4[0]; // CORRECCIÓN: Ahora sí, mostramos la frase final limpia y sola en su lugar correspondiente
-                return; 
+                clearInterval(intervalo);
+
+                document.getElementById("texto").textContent = "";
+
+                setTimeout(() => {
+                    document.getElementById("ultima").textContent = mayusculas4[0];
+
+                    // La frase se queda X segundos y luego desaparece
+                    setTimeout(() => {
+                        document.getElementById("ultima").textContent = "";
+                    }, 8000); // ← ajusta cuánto tiempo quieres que se vea la frase
+
+                }, 500);
+
+                return;
             }
 
             // Mientras queden frases en "frases2", se imprimen de forma normal:

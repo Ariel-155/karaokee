@@ -3,7 +3,7 @@ html{
     padding: 0;
     align-items: center;
     box-sizing: border-box;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:cursive;
     text-align: center;
 }
 
@@ -12,6 +12,7 @@ h1{
 }
 
 body{
+    transition: background color 1s ease;
     display: flex;
     align-items: center;
     display: flex;
